@@ -1,0 +1,325 @@
+/*在桌機這邊要設定最大範圍1200PX長這樣*/
+@media screen and (max-width:480px){
+/*強迫要固定寬而且要置中*/
+
+.fixed-width {
+    width: 100%;
+/*    margin: auto;*/
+}
+
+
+/*三欄式區塊設定 */
+
+.col-3 {
+/*    float: left;*/
+    /*如果網頁寬是除不盡的可以打成width:calc(1100px/3);*/
+    width: 100%;
+/*    margin-left: 10px;*/
+/*    margin-right: 10px;*/
+}
+
+
+/*四欄式區塊設定 */
+
+.col-4 {
+/*    float: left;*/
+    width: 100%;
+/*    margin-left: 10px;*/
+/*    margin-right: 10px;*/
+}
+
+
+/*用一個固定位置 */
+
+
+/*fixed是用來固定出現在網頁的如果網頁不用這樣可以不用設這個*/
+
+/*手機板不要再固定比較好因為瀏覽會不OK    */
+nav {
+/*    position: fixed;*/
+}
+
+
+/*LOGO設定 */
+/*不用浮動然後寬高設小一點配合手機*/
+nav .logo {
+/*    float: left;*/
+    width: 50px;
+    height: 50px;
+    background-color: darkorchid;
+}
+
+
+/*選單設定 */
+/*這邊不用靠左要讓選單往下才可以選後面試JS在教收起來*/
+nav .menu {
+/*    float: right;*/
+}
+
+
+/*先設定預設值為零 */
+
+nav .menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+
+/*每個選單排列以及點除掉設定 */
+
+nav .menu li {
+/*    float: left;*/
+    list-style-type: none;
+    border-bottom: 1px solid #eee;
+}
+
+
+/*連結點要呈現的字的外部設定(大小/間距/字體顏色) */
+/*這邊設按鈕式灰黑背景以及長寬改小*/
+nav .menu a {
+    display: block;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 50px;
+    line-height: 50px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    background-color: #333;
+}
+
+header {
+    background-image: url(http://lorempicsum.com/nemo/800/600/4);
+    background-size: cover;
+    /* height:600px;           */
+    padding-top: 250px;
+    padding-bottom: 250px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0;
+}
+
+header::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+header .content {
+    color: #FFF;
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: middle;
+}
+/*通常手機板會調大標題縮小一點其他則不太動,除非很小就要調大一點才看得到*/
+header .content h1 {
+    letter-spacing: 5px;
+    font-size: 48px;
+}
+
+header .content p {
+    letter-spacing: 2px;
+    margin-top: 10px;
+    margin-bottom: 60px;
+    color: #fff;
+}
+
+header .content a {
+    display: inline-block;
+    color: #fff;
+    padding: 10px 25px;
+    text-decoration: none;
+    border: 1px solid;
+}
+
+
+/* 用內距去調大區塊距離*/
+
+#about {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: #ddd;
+}
+
+
+/* 設定三欄式都是要置中然後往內距縮一點看起來比較不大*/
+
+#about .col-3 {
+    text-align: center;
+    padding: 20px;
+}
+
+
+/* 設定字上下外推距離這樣就不用個別去設定上面跟下面的距離推擠*/
+
+#about h3 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#about p {
+    font-size: 14px;
+}
+
+
+/* 這方法是指類別一樣裡只對其中一種設定可用這方法就不用建很多只用一次性類別的class所以這方法會比較好然後括弧裡面是看你要選第幾個*/
+
+
+/*:(冒號)後是產生元素而::(雙冒號)是產生東西*/
+
+#about .col-3:nth-of-type(1) .icon {
+    color: darkred;
+}
+
+#about .col-3:nth-of-type(2) .icon {
+    color: #001dff;
+}
+
+#about .col-3:nth-of-type(3) .icon {
+    color: deeppink;
+}
+
+
+/* 這邊直接設定字型置中會比較快用和內距去調字的距離會比較快*/
+
+#ad {
+    background-image: url(images/img8.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    color: #fff;
+}
+
+#ad p {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#profile {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+#profile div:nth-of-type(1) {
+    text-align: center;
+}
+
+#profile .detail {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0;
+    /*這邊一定要設寬度 這樣裡面的div要設寬度才抓得到 */
+    width: 100%;
+}
+
+#profile .detail::before {
+    content: "";
+    vertical-align: middle;
+    display: inline-block;
+    height: 100%;
+}
+/*這邊要用百分比下去設定因為本來的分配PX就沒意義了*/
+#profile .thumb {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    width: 30%;
+}
+/*這邊要用百分比下去設定因為本來的分配PX就沒意義了*/
+#profile .position {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    width: 50%;
+    text-align: left;
+}
+
+
+/*這個>只能選到第一個其他後代都無法剛剛那個nth-of-type()這種方法會把後代都用套進去*/
+
+#profile div:nth-of-type(2) .col-3>p {
+    padding: 20px 20px 40px 15px;
+    text-align: left;
+}
+
+#blog {
+    background-color: #ddd;
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+#blog .gallery {
+    position: relative;
+}
+
+#blog .gallery .date {
+    position: absolute;
+    /*            width: 40px;*/
+    /*            height: 40px;*/
+    padding: 8px;
+    background-color: rgba(0, 0, 0, .5);
+    color: #fff;
+    top: 0;
+    left: 40px;
+    text-align: center;
+}
+
+
+/*這邊的+是同代選取器 */
+/*這邊配合介面大小設定字的大小*/
+#blog .gallery+p {
+    margin-bottom: 40px;
+/*    padding-top: 30px;*/
+    color: #666;
+    font-size: 16px;
+    padding: 20px
+}
+
+.title {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+
+.title h2 {
+    color: coral;
+}
+
+.title p {
+    line-height: 36px;
+}
+/*把浮動用掉然後置中*/
+footer .logo {
+    width: 100px;
+    height: 70px;
+    background-color: #ccc;
+/*    float: left;*/
+    margin: auto;
+  
+}
+/*把浮動用掉然後文字置中還有行距變小*/
+footer .copyright {
+    line-height: 40px;
+/*    float: left;*/
+    font-size: 14px;
+/*    margin-left: 30px;*/
+    text-align: center;
+}
+/*讓整個選單置中*/
+footer .menu {
+/*    float: right;*/
+    text-align: center;
+}
+/*直接用外距設定每個的距離*/
+footer .menu a {
+    line-height: 40px;
+/*    text-align: center;*/
+    text-decoration: none;
+    color: #333;
+    margin: 10px;
+}
+}

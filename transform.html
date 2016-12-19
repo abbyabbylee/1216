@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- 這頁示範3D效果 -->
+    <style>
+        .box{
+            /*transform給的都是絕對定位*/
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: blue;
+            /*後面點5是縮寫直接兩者寬跟高都是.5倍*/
+            /* transform: scale(.5);*/
+            /* 這邊可以疊加使用但是這樣寫才能先旋轉後變長*/
+            /*transform: rotate(45deg)scale(1,2)*/
+            /*這是3D效果一定會加前面的透視,透視是正的X往上反之往下,
+            透視是正的Y往右反之往左*/
+            /* 3D都會牽扯到X軸Y軸Z軸*/
+            /*3D裡面比較常用的是rotate(旋轉)還有translate(位移)*/
+            /*舉例來說透視是正的translateZ就是往前反之往後*/
+            transform: perspective(800px)rotateX(45deg);
+    }
+
+    
+    
+    
+    </style>
+    
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

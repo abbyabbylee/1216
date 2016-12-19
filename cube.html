@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!--此頁是要做立方體   -->
+    <style>
+        /*外面先一個大框但是設定相對定位*/   
+        /*這大框就是包住物件所以會跟物件寬高一樣所以直接設定在這邊寬高就好*/
+        /* 然後立方體有六個面所以要用同一個透視點所以也就設定在這大框內因為不能有六個面六個不同透視點*/
+        .container{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            perspective: 1000px;
+            margin-left: 30%;
+            margin-top: 30%;
+        }
+        .cube{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            /*這邊一定要設定要透視3D因為要呼應大方塊(是用這種方是這定而不是單獨六個自己設透視眼)*/
+            transform-style: preserve-3d;
+            /*這邊加入旋轉動畫*/
+            /*屬性(gogogo)轉15秒 等速轉 無限次轉*/
+            animation: gogogo 15s alternate infinite;
+        }
+        .cube div{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: .2
+        }
+        .top{background-color: aqua;}
+        .bottom{background-color: blueviolet;}
+        .left{background-color: brown;}
+        .right{background-color: coral;}
+        .front{background-color: darkgoldenrod;}
+        .back{background-color: deeppink;}
+        /* 這邊先設定前面放大100(要呼應後面放大100這樣就等於大方容器寬200了)       */
+        .front{transform: translateZ(100px)}
+        /*這邊一定要先旋轉正90度再放大100PX(也是呼應左邊的放大100PX這樣就等於大方容器寬200了)*/
+        .right{transform: rotateY(90deg)translateZ(100px)}
+        .left{transform: rotateY(-90deg)translateZ(100px)}
+        /*這邊是上下所以是X軸然後正90另一個負90,縮放都是個100一樣呼應整個高200*/
+        .top{transform: rotateX(90deg)translateZ(100px)}
+        .bottom{transform: rotateX(-90deg)translateZ(100px)}
+        /*這邊是只要讓後面它本身的正面轉出來這樣無論翻轉到哪邊都是BACK的正面然後給X軸或Y軸都可以(放大100一樣是呼應前面放大100總共加總起來是200)*/
+        .back{transform: rotateX(180deg)translateZ(100px)}
+        
+        /*設定每個轉向*/
+         @keyframes gogogo {
+            0% {
+                transform: rotateX(90deg);
+            }
+            10% {
+                transform: rotateY(90deg);
+            }
+            20% {
+                transform: rotateX(180deg);
+            }
+            30% {
+                transform: rotateY(90deg);
+            }
+            40% {
+                transform: rotateX(90deg);
+            }
+            50% {
+                transform: rotateY(90deg);
+            }
+            60% {
+                transform: rotateX(90deg);
+            }
+            70% {
+                transform: rotateY(270deg);
+            }
+            80% {
+                transform: rotateX(180deg);
+            }
+            90% {
+                transform: rotateY(90deg);
+            }
+            100% {
+                transform: rotateX(90deg);
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cube">
+            <div class="top"></div>    
+            <div class="bottom"></div>    
+            <div class="left"></div>    
+            <div class="right"></div>    
+            <div class="front"></div>    
+            <div class="back"></div>    
+        </div>
+     </div>
+</body>
+</html>

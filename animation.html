@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+        <!--這頁是示範動畫    -->
+    <style>
+        .box{
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: #0AF;
+            /* 第一個先給屬性名稱,第二個是跑幾秒,第三個是底類幾秒,第四個是跑幾次*/
+            /*infinite是只跑無限次*/
+            /* animation: go .6s 2s 5;*/
+            /* 這邊是配合選轉動畫*/ 
+            /*linear這邊是讓動畫的速度變成等速*/
+            /*alternate這是指正旋轉後反旋轉*/
+            /*ease-in-out這裡是指IN(進場速度慢)OUT(出場速度慢)*/
+            /* animation: go 3s infinite alternate ease-in-out;*/
+            animation: go 3s infinite
+        }
+        /*動畫都要先給這個聯結 */
+        /* 第一種是from{}to{} */
+        /* 第二種是0%{}50%{}100%{}*/
+        @keyframes go {
+            /*
+            from{top:0;}
+            to{top:500px;}
+            */
+            /* 四段動畫但要有五個點(所以以此類推如果六段動畫就是七個點),注意每個點的位置都要給不能省略這樣動畫路線會跑掉, */
+            /*
+            0%{top:0;left:0;}
+            25%{top:0;left:400px;}
+            50%{top:400px;left:400px;}
+            75%{top:400px;left:0;}
+            100%{top:0;left:0;}
+            */
+            /*
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+            */
+            0%{
+                transform: perspective(700px)rotateX(0)rotateY(0)rotateZ(45deg);
+            }
+            50%{
+                transform: perspective(700px)rotateX(180deg)rotateY(0)rotateZ(0);
+            }
+            100%{
+                transform: perspective(700px)rotateX(180deg)rotateY(180deg)rotateZ(45deg);
+            }
+      
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
